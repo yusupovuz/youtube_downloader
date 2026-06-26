@@ -3,7 +3,7 @@ import threading
 import time
 import os
 from urllib.parse import urlparse
-from concurrent.futures import ThreadPoolExecutor # YANGA QO'SHILDI: Limitni boshqarish uchun
+from concurrent.futures import ThreadPoolExecutor 
 
 class VideoDownloader:
     def __init__(self, cache_dir="./downloads", max_cache_size=5, max_concurrent_downloads=20):
