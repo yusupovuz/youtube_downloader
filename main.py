@@ -1,16 +1,16 @@
-# main.py
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import os
 
-# Import the class from your downloader.py file
 from downloader import VideoDownloader 
 
 app = FastAPI()
-
-# Initialize the downloader
-downloader = VideoDownloader(cache_dir="./api_downloads", max_cache_size=5)
+downloader = VideoDownloader(
+    cache_dir="./api_downloads", 
+    max_cache_size=5, 
+    max_concurrent_downloads=20
+)
 
 class DownloadRequest(BaseModel):
     url: str
